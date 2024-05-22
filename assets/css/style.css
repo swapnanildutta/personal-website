@@ -84,7 +84,7 @@ body.dark{
     --body-color: #242526;
     --first_color: #ffffff;
     --color-white: rgb(0, 0, 0);
-    --nav-menu-color: rgba(33, 33, 35, 0.7);
+    --nav-menu-color: rgba(33, 33, 35, 0.85);
 
     --text-color-second: rgb(194, 194, 194);
     --text-color-third: rgb(42, 200, 214);
@@ -132,6 +132,7 @@ nav{
 }
 .nav-menu, .nav_menu_list{
     display: flex;
+    align-items: center;
 }
 .nav-menu .nav_list{
     list-style: none;
@@ -220,11 +221,11 @@ nav{
     display: flex;
     gap: 20px;
 }
-.featured-text-btn>.blue-btn{
+.featured-text-btn>.hire-link>.blue-btn{
     background: var(--first-color);
     color: var(--color-white);
 }
-.featured-text-btn>.blue-btn:hover{
+.featured-text-btn>.hire-link>.blue-btn:hover{
     background: var(--first-color-hover);
 }
 .social_icons{
@@ -615,6 +616,7 @@ body.dark #moon{
         justify-content: center;
         align-items: center;
         background: var(--nav-menu-color);
+        font-size: 25px;
         backdrop-filter: blur(20px);
         width: 100%;
         min-height: 450px;
