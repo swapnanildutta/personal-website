@@ -121,4 +121,13 @@ function scrollActive() {
   })
 }
 
+/* --------- HIRE ME LINK TO CONTACT TEXT ---------- */
+
+const hiretext="Dear Swapnanil, we were impressed by your qualifications and experience, and we would love to offer you a position at our company. We believe you'll be a valuable addition to our team."
+
+function hireClick(e){
+  document.getElementById("message").value=hiretext;
+  document.getElementById("message").blur();
+}
+
 window.addEventListener('scroll', scrollActive)
