@@ -83,7 +83,7 @@
               </p>
             </div>
             <div class="featured-text-btn">
-              <button class="btn blue-btn">Hire Me</button>
+              <a class="hire-link" href="#contact"><button class="btn blue-btn" onclick="hireClick(event)">Hire Me</button></a>
               <button class="btn">
                 Download CV <i class="uil uil-file-alt"></i>
               </button>
@@ -237,11 +237,11 @@
             <div class="col">
               <div class="form-control">
                 <div class="form-inputs">
-                  <input type="text" class="input-field" placeholder="Name" />
-                  <input type="text" class="input-field" placeholder="Email" />
+                  <input type="text" class="input-field" placeholder="Name" id="visitor-name" />
+                  <input type="text" class="input-field" placeholder="Email" id="visitor-mail" />
                 </div>
                 <div class="text-area">
-                  <textarea placeholder="Message"></textarea>
+                  <textarea placeholder="Message" id="message"></textarea>
                 </div>
                 <div class="form-button">
                   <button class="btn">
