@@ -16,6 +16,17 @@ function myMenuFunction(){
     }
   }
 
+/* -------- DOWNLOAD CV ---------- */
+function downloadCV(url){
+  const a = document.createElement('a')
+  a.href = url
+  let filename = 'AEM-Dev-Swapnanil-Dutta-Resume.pdf'
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+}
+
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
   window.onscroll = function() {headerShadow()};
 
