@@ -50,7 +50,7 @@
           </ul>
         </div>
         <div class="nav-button">
-          <button class="btn">
+          <button class="btn" onclick="downloadCV('assets/document/AEM-Dev Swapnanil Dutta Resume.pdf')">
             Download CV <i class="uil uil-file-alt"></i>
           </button>
         </div>
@@ -83,8 +83,12 @@
               </p>
             </div>
             <div class="featured-text-btn">
-              <button class="btn blue-btn">Hire Me</button>
-              <button class="btn">
+              <a class="hire-link" href="#contact"
+                ><button class="btn blue-btn" onclick="hireClick(event)">
+                  Hire Me
+                </button></a
+              >
+              <button class="btn"  onclick="downloadCV('assets/document/AEM-Dev Swapnanil Dutta Resume.pdf')">
                 Download CV <i class="uil uil-file-alt"></i>
               </button>
             </div>
@@ -146,7 +150,7 @@
                   AEM.
                 </p>
                 <div class="about-btn">
-                  <button class="btn">
+                  <button class="btn"  onclick="downloadCV('assets/document/AEM-Dev Swapnanil Dutta Resume.pdf')">
                     Download CV <i class="uil uil-import"></i>
                   </button>
                 </div>
@@ -236,18 +240,33 @@
             </div>
             <div class="col">
               <div class="form-control">
-                <div class="form-inputs">
-                  <input type="text" class="input-field" placeholder="Name" />
-                  <input type="text" class="input-field" placeholder="Email" />
-                </div>
-                <div class="text-area">
-                  <textarea placeholder="Message"></textarea>
-                </div>
-                <div class="form-button">
-                  <button class="btn">
-                    Send <i class="uil uil-message"></i>
-                  </button>
-                </div>
+                <form class="form-control" action="https://formspree.io/f/xvoenrlk" method="POST">
+                    <div class="form-inputs">
+                    <input
+                      type="text"
+                      name="name"
+                      class="input-field"
+                      placeholder="Name"
+                      id="visitor-name"
+                    />
+                    <input
+                      type="text"
+                      name="email"
+                      class="input-field"
+                      placeholder="Email"
+                      id="visitor-mail"
+                    />
+                    </div>
+                    <div class="text-area">
+                        <textarea name="message" placeholder="Message" id="message"></textarea>
+                    </div>
+                    <input type="hidden" name="_next" value="/thank_you" />
+                  <div class="form-button">
+                    <button name="submit" class="btn">
+                      Send <i class="uil uil-message"></i>
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
