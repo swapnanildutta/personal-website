@@ -3,18 +3,25 @@
 
 /* ----- VARIABLES ----- */
 :root{
-    --body-color: rgb(250, 250, 250);
+    --body-color: #f4f7f8;
+    --surface-color: #ffffff;
     --color-white: rgb(255, 255, 255);
-    --nav-menu-color: rgba(255, 255, 255, 0.7);
+    --nav-menu-color: rgba(255, 255, 255, 0.82);
 
     --text-color-second: rgb(68, 68, 68);
     --text-color-third: rgb(30, 159, 171);
+    --text-muted: #68747c;
 
     --first-color: rgb(110, 87, 224);
     --first-color-hover: rgb(40, 91, 212);
 
     --second-color: rgb(0, 201, 255);
     --third-color: rgb(192, 166, 49);
+    --button-bg: #e8eef2;
+    --button-text: #243038;
+    --button-border: rgba(30, 159, 171, 0.16);
+    --button-hover-bg: var(--second-color);
+    --button-hover-text: #ffffff;
     --first-shadow-color: rgba(0, 0, 0, 0.1);
     --icons-bg: #242526;
 }
@@ -53,21 +60,35 @@ html{
 
 /* ----- GLOBAL BUTTON DESIGN ----- */
 .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 46px;
+    max-width: 100%;
     font-weight: 500;
-    padding: 12px 20px;
-    background: #efefef;
-    border: none;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 18px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--button-border);
     border-radius: 10px;
     cursor: pointer;
+    white-space: nowrap;
     transition: .4s;
 }
 .btn>i{
-    margin-left: 10px;
+    margin-left: 0;
     color: var(--text-color-third);
 }
 .btn:hover{
-    background: var(--second-color);
-    color: var(--color-white);
+    background: var(--button-hover-bg);
+    color: var(--button-hover-text);
+    border-color: transparent;
+}
+.btn:hover>i{
+    color: var(--button-hover-text);
 }
 
 /* ----- GLOBAL ICONS DESIGN ----- */
@@ -82,19 +103,26 @@ body{
     overflow-x: hidden;
 }
 body.dark{
-    --body-color: #242526;
+    --body-color: #181c20;
+    --surface-color: #22272e;
     --first_color: #ffffff;
-    --color-white: rgb(0, 0, 0);
-    --nav-menu-color: rgba(33, 33, 35, 0.85);
+    --color-white: rgb(255, 255, 255);
+    --nav-menu-color: rgba(24, 28, 32, 0.88);
 
-    --text-color-second: rgb(194, 194, 194);
+    --text-color-second: rgb(222, 226, 230);
     --text-color-third: rgb(42, 200, 214);
+    --text-muted: #a8b2ba;
 
-    --first-color: rgb(110, 87, 224);
-    --first-color-hover: rgb(40, 91, 212);
+    --first-color: rgb(132, 112, 238);
+    --first-color-hover: rgb(101, 141, 232);
 
     --second-color: rgb(0, 201, 255);
     --third-color: rgb(192, 166, 49);
+    --button-bg: #2d343b;
+    --button-text: #edf3f7;
+    --button-border: rgba(42, 200, 214, 0.24);
+    --button-hover-bg: #2ac8d6;
+    --button-hover-text: #12181c;
     --first-shadow-color: rgba(255, 255, 255, 0.1);
     --icons-bg: #f4f4f4;
 }
@@ -220,14 +248,16 @@ nav{
 }
 .featured-text-btn{
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
-.featured-text-btn>.hire-link>.blue-btn{
-    background: var(--first-color);
-    color: var(--color-white);
+.featured-text-btn .btn,
+.nav-button .btn{
+    min-width: 145px;
 }
-.featured-text-btn>.hire-link>.blue-btn:hover{
-    background: var(--first-color-hover);
+.hire-link{
+    display: inline-flex;
+    text-decoration: none;
 }
 .social_icons{
     display: flex;
@@ -288,7 +318,7 @@ nav{
    gap: 5px;
    text-decoration: none;
    color: var(--text-color-second);
-   background: var(--color-white);
+   background: var(--surface-color);
    border-radius: 30px;
    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
 }
@@ -323,7 +353,7 @@ nav{
     margin-bottom: 10px;
 }
 .top-header span{
-    color: #999;
+    color: var(--text-muted);
 }
 h3{
     font-size: 20px;
@@ -341,25 +371,19 @@ h3{
     padding-block: 30px 70px;
     padding-inline: 20px;
     width: 100%;
-    background: var(--color-white);
+    background: var(--surface-color);
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     border-radius: 20px;
 }
 .about-info p{
     text-align: center;
     font-size: 15px;
-    color: #777;
+    color: var(--text-muted);
 }
 .about-btn button{
     position: absolute;
     right: 20px;
     bottom: 20px;
-    background: var(--first-color);
-    color: var(--color-white);
-    border-radius: 30px;
-}
-.about-btn button:hover{
-    background: var(--first-color-hover);
 }
 
 /* ----- ABOUT / SKILLS BOX ----- */
@@ -370,7 +394,7 @@ h3{
 .skills-box{
     width: 100%;
     padding: 20px;
-    background: var(--color-white);
+    background: var(--surface-color);
     border-left: 4px solid var(--first-color);
     border-radius: 8px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
@@ -399,7 +423,7 @@ h3{
 }
 .skills-copy{
     margin-bottom: 16px;
-    color: #777;
+    color: var(--text-muted);
     font-size: 14px;
     line-height: 1.6;
 }
@@ -434,7 +458,7 @@ h3{
     gap: 14px;
     min-height: 96px;
     padding: 20px;
-    background: var(--color-white);
+    background: var(--surface-color);
     border-left: 4px solid var(--second-color);
     border-radius: 8px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
@@ -459,7 +483,7 @@ h3{
 }
 .project-stat span{
     display: block;
-    color: #777;
+    color: var(--text-muted);
     font-size: 13px;
     line-height: 1.45;
 }
@@ -476,7 +500,7 @@ h3{
     gap: 18px;
     min-height: 100%;
     padding: 26px;
-    background: var(--color-white);
+    background: var(--surface-color);
     border: 1px solid rgba(30, 159, 171, 0.12);
     border-radius: 8px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
@@ -489,7 +513,7 @@ h3{
 }
 .featured-project{
     grid-column: 1 / -1;
-    background: linear-gradient(135deg, rgba(0, 201, 255, 0.12), var(--color-white) 45%);
+    background: linear-gradient(135deg, rgba(0, 201, 255, 0.12), var(--surface-color) 45%);
 }
 .project-card-header{
     display: flex;
@@ -520,7 +544,7 @@ h3{
     white-space: nowrap;
 }
 .project-card p{
-    color: #777;
+    color: var(--text-muted);
     font-size: 14px;
     line-height: 1.7;
 }
@@ -550,58 +574,99 @@ h3{
     padding: 5px 10px;
     border-radius: 5px;
 }
-.contact-info::after{
-    content: "";
-    position: absolute;
-    bottom: -100%;
-    background: var(--second-color);
-    width: 100%;
-    height: 100%;
-    transition: .4s;
-    z-index: 1;
-}
-.contact-info:hover.contact-info::after{
-    bottom: 0;
-}
-
 /* ----- CONTACT BOX ----- */
 .contact-info{
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 30px;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 28px;
     width: 100%;
-    height: 315px;
-    background: var(--second-color);
-    border-radius: 10px;
+    min-height: 315px;
+    background: var(--surface-color);
+    border: 1px solid var(--button-border);
+    border-left: 4px solid var(--text-color-third);
+    border-radius: 8px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
 }
-.contact-info>h2{
-    color: var(--color-white);
-    margin-bottom: 20px;
+.contact-card-header{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
 }
-.contact-info>p{
+.contact-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    background: var(--text-color-third);
+    border-radius: 50%;
+}
+.contact-icon i{
+    font-size: 22px;
+    color: var(--color-white);
+}
+.contact-card-header h2{
+    margin-bottom: 8px;
+    color: var(--text-color-second);
+}
+.contact-card-header p{
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+.contact-methods{
+    display: grid;
+    gap: 12px;
+}
+.contact-method{
     display: flex;
     align-items: center;
+    gap: 12px;
+    padding: 14px;
+    color: var(--text-color-second);
+    text-decoration: none;
+    background: rgba(30, 159, 171, 0.08);
+    border: 1px solid rgba(30, 159, 171, 0.12);
+    border-radius: 8px;
+    transition: .3s;
+}
+.contact-method:hover{
+    transform: translateY(-2px);
+    border-color: var(--text-color-third);
+}
+.contact-method i{
+    font-size: 20px;
+    color: var(--text-color-third);
+}
+.contact-method span{
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+.contact-method small{
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.contact-note{
+    display: flex;
+    align-items: flex-start;
     gap: 10px;
-    color: var(--color-white);
-    margin-block: 5px;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.6;
 }
-.contact-info p>i{
-    font-size: 18px;
-    color: var(--icons-bg);
-}
-.contact-info::after{
-    background: var(--color-white);
-}
-.contact-info:hover.contact-info h2,
-.contact-info:hover.contact-info p,
-.contact-info:hover.contact-info i{
-    color: var(--icons-bg);
-    z-index: 2;
+.contact-note i{
+    margin-top: 2px;
+    color: var(--text-color-third);
 }
 
 /* ----- CONTACT FORM ----- */
@@ -619,8 +684,9 @@ h3{
 .input-field{
     width: 50%;
     height: 55px;
-    background: transparent;
-    border: 2px solid #AAA;
+    background: var(--surface-color);
+    color: var(--text-color-second);
+    border: 2px solid var(--button-border);
     border-radius: 10px;
     padding-inline: 20px;
     outline: none;
@@ -628,27 +694,29 @@ h3{
 textarea{
     width: 100%;
     height: 250px;
-    background: transparent;
-    border: 2px solid #AAA;
+    background: var(--surface-color);
+    color: var(--text-color-second);
+    border: 2px solid var(--button-border);
     border-radius: 10px;
     padding: 15px 20px;
     outline: none;
     resize: none;
 }
-.form-button>.btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--second-color);
-    color: var(--color-white);
+.input-field:focus,
+textarea:focus{
+    border-color: var(--text-color-third);
 }
-.form-button>.btn:hover{
-    background: #00B5E7;
+.input-field::placeholder,
+textarea::placeholder{
+    color: var(--text-muted);
+}
+.form-button>.btn{
+    min-width: 110px;
 }
 .form-button i{
     font-size: 18px;
     rotate: -45deg;
-    color: var(--icons-bg);
+    color: currentColor;
 }
 
 /* ----- FOOTER BOX ----- */
@@ -681,7 +749,7 @@ footer{
 .footer-social-icons{
     display: flex;
     gap: 30px;
-    color: var(--icons-bg);   
+    color: var(--icons-bg);
 }
 .bottom-footer{
     font-size: 14px;
@@ -701,13 +769,14 @@ footer{
     justify-content: center;
     height: 40px;
     width: 40px;
-    background: #f5f5f5;
+    background: var(--button-bg);
+    border: 1px solid var(--button-border);
     border-radius: 50%;
     cursor: pointer;
 }
 .moon-sun :is(#moon,#sun){
     position: absolute;
-    color: var(--medium-dark);
+    color: var(--button-text);
     transition: .2s ease-in-out;
 }
 #sun{
@@ -818,6 +887,16 @@ body.dark #moon{
 @media only screen and (max-width: 540px){
     .featured-name{
         font-size: 40px;
+    }
+    .featured-text-btn{
+        gap: 12px;
+    }
+    .featured-text-btn .btn,
+    .featured-text-btn .hire-link{
+        flex: 1 1 150px;
+    }
+    .featured-text-btn .btn{
+        width: 100%;
     }
     .project-card-header{
         flex-direction: column;
