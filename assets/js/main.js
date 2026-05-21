@@ -72,7 +72,8 @@ sr.reveal(".social_icons", { delay: 200 });
 sr.reveal(".featured-image", { delay: 300 });
 
 /* -- PROJECT BOX -- */
-sr.reveal(".project-box", { interval: 200 });
+sr.reveal(".project-stat", { interval: 120 });
+sr.reveal(".project-card", { interval: 160 });
 
 /* -- HEADINGS -- */
 sr.reveal(".top-header", {});
