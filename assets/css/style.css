@@ -79,6 +79,7 @@ i{
 /* ------- BASE -------- */
 body{
     background: var(--body-color);
+    overflow-x: hidden;
 }
 body.dark{
     --body-color: #242526;
@@ -362,56 +363,194 @@ h3{
 }
 
 /* ----- ABOUT / SKILLS BOX ----- */
+.skills-column{
+    flex-direction: column;
+    gap: 14px;
+}
 .skills-box{
-    margin: 10px;
+    width: 100%;
+    padding: 20px;
+    background: var(--color-white);
+    border-left: 4px solid var(--first-color);
+    border-radius: 8px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    transition: transform .3s, border-color .3s, box-shadow .3s;
 }
 .skills-header{
-    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.skills-header i{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    color: var(--color-white);
+    background: var(--text-color-third);
+    border-radius: 50%;
+    font-size: 19px;
+}
+.skills-header h3{
+    margin-bottom: 0;
+}
+.skills-copy{
+    margin-bottom: 16px;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
 }
 .skills-list{
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 8px;
 }
 .skills-list span{
-    font-size: 14px;
-    background: var(--first-color);
-    color: var(--color-white);
-    padding: 2px 10px;
+    font-size: 13px;
+    background: rgba(30, 159, 171, 0.1);
+    color: var(--text-color-third);
+    padding: 5px 10px;
     border-radius: 5px;
+}
+.skills-box:hover{
+    transform: translateY(-4px);
+    border-color: var(--second-color);
+    box-shadow: 1px 12px 20px 4px var(--first-shadow-color);
 }
 
 /* ----- PROJECTS BOX ----- */
-.project-container{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+.project-summary{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
 }
-.project-box{
+.project-stat{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 96px;
+    padding: 20px;
+    background: var(--color-white);
+    border-left: 4px solid var(--second-color);
+    border-radius: 8px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+}
+.project-stat i{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+    color: var(--color-white);
+    background: var(--first-color);
+    border-radius: 50%;
+}
+.project-stat strong{
+    display: block;
+    color: var(--text-color-second);
+    font-size: 24px;
+    line-height: 1.1;
+}
+.project-stat span{
+    display: block;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.45;
+}
+.project-container{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 22px;
+}
+.project-card{
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    width: 30%;
-    height: 250px;
+    gap: 18px;
+    min-height: 100%;
+    padding: 26px;
     background: var(--color-white);
-    border-radius: 20px;
+    border: 1px solid rgba(30, 159, 171, 0.12);
+    border-radius: 8px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
-    overflow: hidden;
+    transition: transform .3s, box-shadow .3s, border-color .3s;
 }
-.project-box>i{
-    font-size: 50px;
-    margin-bottom: 25px;
-    color: var(--icons-bg);
+.project-card:hover{
+    transform: translateY(-6px);
+    border-color: rgba(0, 201, 255, 0.55);
+    box-shadow: 1px 12px 20px 4px var(--first-shadow-color);
 }
-.project-box label{
-    font-size: 15px;
+.featured-project{
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(0, 201, 255, 0.12), var(--color-white) 45%);
+}
+.project-card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+.project-company{
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color-third);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+.project-card h3{
+    margin-bottom: 0;
+}
+.project-date{
+    flex: 0 0 auto;
+    padding: 6px 10px;
+    color: var(--text-color-second);
+    background: rgba(0, 201, 255, 0.12);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.project-card p{
     color: #777;
+    font-size: 14px;
+    line-height: 1.7;
 }
-.project-box::after, .contact-info::after{
+.project-highlights{
+    display: grid;
+    gap: 10px;
+    padding-left: 18px;
+}
+.project-highlights li{
+    color: var(--text-color-second);
+    font-size: 14px;
+    line-height: 1.55;
+}
+.project-highlights li::marker{
+    color: var(--text-color-third);
+}
+.project-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+.project-tags span{
+    font-size: 15px;
+    color: var(--text-color-third);
+    background: rgba(30, 159, 171, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.contact-info::after{
     content: "";
     position: absolute;
     bottom: -100%;
@@ -421,15 +560,8 @@ h3{
     transition: .4s;
     z-index: 1;
 }
-.project-box:hover.project-box::after,
 .contact-info:hover.contact-info::after{
     bottom: 0;
-}
-.project-box:hover.project-box i,
-.project-box:hover.project-box>h3,
-.project-box:hover.project-box>label{
-    color: var(--color-white);
-    z-index: 2;
 }
 
 /* ----- CONTACT BOX ----- */
@@ -671,11 +803,12 @@ body.dark #moon{
     .about-info, .contact-info{
         width: 100%;
     }
+    .project-summary,
     .project-container{
-        justify-content: center;
+        grid-template-columns: 1fr;
     }
-    .project-box{
-        width: 80%;
+    .featured-project{
+        grid-column: auto;
     }
 
 }
@@ -686,8 +819,15 @@ body.dark #moon{
     .featured-name{
         font-size: 40px;
     }
-    .project-box{
-        width: 100%;
+    .project-card-header{
+        flex-direction: column;
+    }
+    .project-date{
+        white-space: normal;
+    }
+    .project-card,
+    .project-stat{
+        padding: 20px;
     }
     .form-inputs{
         flex-direction: column;
