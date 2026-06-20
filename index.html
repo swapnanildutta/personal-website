@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -52,7 +52,9 @@
         <div class="nav-button">
           <button
             class="btn"
-            onclick="downloadCV('assets/document/AEM-DEV-SWAPNANIL-DUTTA.pdf')"
+            onclick="
+              downloadCV('assets/document/AEM-Dev-SWAPNANIL-DUTTA-2026.pdf')
+            "
           >
             Download CV <i class="uil uil-file-alt"></i>
           </button>
@@ -96,7 +98,9 @@
               >
               <button
                 class="btn"
-                onclick="downloadCV('assets/document/AEM-DEV-SWAPNANIL-DUTTA.pdf')"
+                onclick="
+                  downloadCV('assets/document/AEM-Dev-SWAPNANIL-DUTTA-2026.pdf')
+                "
               >
                 Download CV <i class="uil uil-file-alt"></i>
               </button>
@@ -188,7 +192,11 @@
                 <div class="about-btn">
                   <button
                     class="btn"
-                    onclick="downloadCV('assets/document/AEM-Dev Swapnanil Dutta Resume.pdf')"
+                    onclick="
+                      downloadCV(
+                        'assets/document/AEM-Dev-SWAPNANIL-DUTTA-2026.pdf',
+                      )
+                    "
                   >
                     Download CV <i class="uil uil-import"></i>
                   </button>
@@ -270,12 +278,12 @@
               </div>
               <ul class="detail-list">
                 <li>
-                  Certified Expert - Adobe Experience Manager Sites Developer
-                  | Adobe | Apr 2024 - Apr 2028
+                  Certified Expert - Adobe Experience Manager Sites Developer |
+                  Adobe | Apr 2024 - Apr 2028
                 </li>
                 <li>
-                  Certified Professional - Adobe Experience Manager Developer
-                  | Adobe | Jan 2024 - Jan 2028
+                  Certified Professional - Adobe Experience Manager Developer |
+                  Adobe | Jan 2024 - Jan 2028
                 </li>
                 <li>
                   Certified Professional - AEM Sites Technical Foundations |
@@ -285,7 +293,9 @@
                   Claude Certified Architect - Foundations Certification |
                   Anthropic | Jun 2026 - Dec 2026
                 </li>
-                <li>AZ-900: Azure Fundamentals Certified | Microsoft | Jun 2022</li>
+                <li>
+                  AZ-900: Azure Fundamentals Certified | Microsoft | Jun 2022
+                </li>
               </ul>
             </article>
 
@@ -294,31 +304,31 @@
                 <i class="uil uil-briefcase-alt"></i>
                 <div>
                   <span>Work Experience</span>
-                  <h3>Cognizant Technology</h3>
+                  <h3>Organization Timeline</h3>
                 </div>
               </div>
-              <span class="detail-date">Since Jul 2025 | Programmer Analyst</span>
-              <ul class="detail-list">
-                <li>
-                  Executing a large-scale Drupal-to-AEM migration program with
-                  hybrid legacy component mapping and modern Figma-driven
-                  designs.
-                </li>
-                <li>
-                  Building Java-based backend integrations to connect AEM
-                  components with Salesforce APIs for secure, scalable data
-                  exchange.
-                </li>
-                <li>
-                  Driving automated authoring and publishing workflows while
-                  scaling multilingual deployment across 14 LATAM markets.
-                </li>
-                <li>
-                  Implemented AEM Headless CMS to streamline content delivery to
-                  a NextJS-backed structure for migration from legacy website
-                  CMS.
-                </li>
-              </ul>
+              <div class="experience-timeline">
+                <button
+                  class="experience-item"
+                  type="button"
+                  data-organization="cognizant"
+                  aria-haspopup="dialog"
+                >
+                  <span class="detail-date">Since Jul 2025</span>
+                  <h4>Cognizant Technology</h4>
+                  <p>Programmer Analyst</p>
+                </button>
+                <button
+                  class="experience-item"
+                  type="button"
+                  data-organization="persistent"
+                  aria-haspopup="dialog"
+                >
+                  <span class="detail-date">Jun 2022 - Jun 2024</span>
+                  <h4>Persistent Systems</h4>
+                  <p>Software Engineer</p>
+                </button>
+              </div>
             </article>
           </div>
         </section>
@@ -366,8 +376,8 @@
               </p>
               <ul class="project-highlights">
                 <li>
-                  Structured content delivery for a NextJS-backed migration
-                  from a legacy website CMS.
+                  Structured content delivery for a NextJS-backed migration from
+                  a legacy website CMS.
                 </li>
                 <li>
                   Developed Java backend and custom AEM components for
@@ -652,6 +662,30 @@
           </p>
         </div>
       </footer>
+    </div>
+    <div class="organization-modal" id="organization-modal" aria-hidden="true">
+      <div class="organization-modal-backdrop" data-close-organization></div>
+      <div
+        class="organization-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="organization-modal-title"
+      >
+        <button
+          class="organization-close"
+          type="button"
+          aria-label="Close organization details"
+          data-close-organization
+        >
+          <i class="uil uil-times"></i>
+        </button>
+        <span class="organization-kicker" id="organization-modal-kicker"></span>
+        <h2 id="organization-modal-title"></h2>
+        <p id="organization-modal-description"></p>
+        <div class="organization-meta" id="organization-modal-meta"></div>
+        <h3>Projects Undertaken</h3>
+        <ul class="organization-projects" id="organization-modal-projects"></ul>
+      </div>
     </div>
 
     <!-- ----- TYPING JS Link ----- -->
