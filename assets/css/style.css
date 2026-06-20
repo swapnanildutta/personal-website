@@ -537,7 +537,7 @@ h3 {
   position: relative;
   display: grid;
   gap: 16px;
-  width: min(680px, calc(100vw - 24px));
+  width: min(680px, calc(80vw - 24px));
   box-sizing: border-box;
   max-height: min(82vh, 760px);
   overflow-y: auto;
