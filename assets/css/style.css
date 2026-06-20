@@ -380,6 +380,21 @@ h3{
     font-size: 15px;
     color: var(--text-muted);
 }
+.profile-summary-list{
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+    padding-left: 18px;
+}
+.profile-summary-list li{
+    color: var(--text-color-second);
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+}
+.profile-summary-list li::marker{
+    color: var(--text-color-third);
+}
 .about-btn button{
     position: absolute;
     right: 20px;
