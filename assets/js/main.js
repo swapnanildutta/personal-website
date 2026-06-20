@@ -74,6 +74,8 @@ sr.reveal(".featured-image", { delay: 300 });
 /* -- PROJECT BOX -- */
 sr.reveal(".project-stat", { interval: 120 });
 sr.reveal(".project-card", { interval: 160 });
+sr.reveal(".credential-card", { delay: 120 });
+sr.reveal(".experience-card", { delay: 180 });
 
 /* -- HEADINGS -- */
 sr.reveal(".top-header", {});

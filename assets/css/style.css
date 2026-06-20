@@ -400,6 +400,74 @@ h3{
     right: 20px;
     bottom: 20px;
 }
+.about-details-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 50px;
+}
+.credential-card,
+.experience-card{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px;
+    background: var(--surface-color);
+    border: 1px solid rgba(30, 159, 171, 0.12);
+    border-left: 4px solid var(--text-color-third);
+    border-radius: 8px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+}
+.detail-card-header{
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+.detail-card-header i{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    color: var(--color-white);
+    background: var(--text-color-third);
+    border-radius: 50%;
+    font-size: 20px;
+}
+.detail-card-header span{
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-color-third);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.detail-card-header h3{
+    margin-bottom: 0;
+}
+.detail-date{
+    align-self: flex-start;
+    padding: 6px 10px;
+    color: var(--text-color-second);
+    background: rgba(0, 201, 255, 0.12);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.detail-list{
+    display: grid;
+    gap: 10px;
+    padding-left: 18px;
+}
+.detail-list li{
+    color: var(--text-color-second);
+    font-size: 14px;
+    line-height: 1.55;
+}
+.detail-list li::marker{
+    color: var(--text-color-third);
+}
 
 /* ----- ABOUT / SKILLS BOX ----- */
 .skills-column{
@@ -886,6 +954,9 @@ body.dark #moon{
     }
     .about-info, .contact-info{
         width: 100%;
+    }
+    .about-details-grid{
+        grid-template-columns: 1fr;
     }
     .project-summary,
     .project-container{
