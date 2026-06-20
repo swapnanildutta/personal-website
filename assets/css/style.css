@@ -102,6 +102,9 @@ body{
     background: var(--body-color);
     overflow-x: hidden;
 }
+body.modal-open{
+    overflow: hidden;
+}
 body.dark{
     --body-color: #181c20;
     --surface-color: #22272e;
@@ -399,6 +402,222 @@ h3{
     position: absolute;
     right: 20px;
     bottom: 20px;
+}
+.about-details-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 50px;
+}
+.credential-card,
+.experience-card{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px;
+    background: var(--surface-color);
+    border: 1px solid rgba(30, 159, 171, 0.12);
+    border-left: 4px solid var(--text-color-third);
+    border-radius: 8px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+}
+.detail-card-header{
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+.detail-card-header i{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    color: var(--color-white);
+    background: var(--text-color-third);
+    border-radius: 50%;
+    font-size: 20px;
+}
+.detail-card-header span{
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-color-third);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.detail-card-header h3{
+    margin-bottom: 0;
+}
+.detail-date{
+    align-self: flex-start;
+    padding: 6px 10px;
+    color: var(--text-color-second);
+    background: rgba(0, 201, 255, 0.12);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.detail-list{
+    display: grid;
+    gap: 10px;
+    padding-left: 18px;
+}
+.detail-list li{
+    color: var(--text-color-second);
+    font-size: 14px;
+    line-height: 1.55;
+}
+.detail-list li::marker{
+    color: var(--text-color-third);
+}
+.experience-timeline{
+    display: grid;
+    gap: 14px;
+}
+.experience-item{
+    position: relative;
+    display: grid;
+    gap: 6px;
+    width: 100%;
+    padding: 16px 16px 16px 20px;
+    background: rgba(30, 159, 171, 0.08);
+    border: 1px solid rgba(30, 159, 171, 0.12);
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: .3s;
+}
+.experience-item:hover,
+.experience-item:focus-visible{
+    transform: translateY(-3px);
+    background: rgba(30, 159, 171, 0.16);
+    border-color: var(--text-color-third);
+    box-shadow: 1px 8px 14px 2px var(--first-shadow-color);
+    outline: none;
+}
+.experience-item::before{
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    background: var(--text-color-third);
+    border-radius: 50%;
+}
+.experience-item h4{
+    color: var(--text-color-second);
+    font-size: 17px;
+    font-weight: 600;
+}
+.experience-item p{
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+.organization-modal{
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 200;
+}
+.organization-modal.is-open{
+    display: flex;
+}
+.organization-modal-backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(12, 18, 24, 0.62);
+    backdrop-filter: blur(6px);
+}
+.organization-dialog{
+    position: relative;
+    display: grid;
+    gap: 16px;
+    width: min(680px, 100%);
+    max-height: min(82vh, 760px);
+    overflow-y: auto;
+    padding: 30px;
+    background: var(--surface-color);
+    border: 1px solid var(--button-border);
+    border-left: 4px solid var(--text-color-third);
+    border-radius: 8px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+}
+.organization-close{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--button-bg);
+    border: 1px solid var(--button-border);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.organization-close i{
+    color: var(--button-text);
+    font-size: 18px;
+}
+.organization-kicker{
+    padding-right: 46px;
+    color: var(--text-color-third);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.organization-dialog h2{
+    padding-right: 46px;
+    color: var(--text-color-second);
+}
+.organization-dialog p{
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+.organization-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.organization-meta span,
+.organization-projects span{
+    display: inline-flex;
+    padding: 5px 10px;
+    color: var(--text-color-third);
+    background: rgba(30, 159, 171, 0.1);
+    border-radius: 5px;
+    font-size: 13px;
+}
+.organization-dialog h3{
+    margin-bottom: 0;
+}
+.organization-projects{
+    display: grid;
+    gap: 14px;
+    padding-left: 0;
+    list-style: none;
+}
+.organization-projects li{
+    display: grid;
+    gap: 8px;
+    padding: 16px;
+    background: rgba(30, 159, 171, 0.06);
+    border: 1px solid rgba(30, 159, 171, 0.12);
+    border-radius: 8px;
+}
+.organization-projects strong{
+    color: var(--text-color-second);
+}
+.organization-projects p{
+    margin: 0;
 }
 
 /* ----- ABOUT / SKILLS BOX ----- */
@@ -886,6 +1105,9 @@ body.dark #moon{
     }
     .about-info, .contact-info{
         width: 100%;
+    }
+    .about-details-grid{
+        grid-template-columns: 1fr;
     }
     .project-summary,
     .project-container{

@@ -74,6 +74,8 @@ sr.reveal(".featured-image", { delay: 300 });
 /* -- PROJECT BOX -- */
 sr.reveal(".project-stat", { interval: 120 });
 sr.reveal(".project-card", { interval: 160 });
+sr.reveal(".credential-card", { delay: 120 });
+sr.reveal(".experience-card", { delay: 180 });
 
 /* -- HEADINGS -- */
 sr.reveal(".top-header", {});
@@ -135,5 +137,127 @@ function hireClick(e) {
   document.getElementById("message").value = hiretext;
   document.getElementById("message").blur();
 }
+
+/* --------- ORGANIZATION DETAILS MODAL ---------- */
+const organizationDetails = {
+  cognizant: {
+    kicker: "Since Jul 2025 | Programmer Analyst",
+    title: "Cognizant Technology",
+    description:
+      "Contributing to enterprise AEM transformation programs with Drupal-to-AEM migration, AEM Headless CMS implementation, Java backend integrations, Salesforce API connectivity, and multilingual rollout workflows.",
+    meta: ["AEM Headless CMS", "Salesforce API", "NextJS", "14 LATAM Markets"],
+    projects: [
+      {
+        name: "US Kitchen and Bathroom",
+        date: "May 2026 - Present",
+        summary:
+          "Led AEM Headless CMS implementation for structured content delivery and NextJS integration, with Java backend and custom AEM components for Salesforce API value input.",
+      },
+      {
+        name: "LATAM Pharma",
+        date: "Jul 2025 - Mar 2026",
+        summary:
+          "Executed Drupal to AEM migration with hybrid legacy component mapping and Figma-driven UI, Salesforce API integration, automated workflows, language copy scaling, and rollout across 14 LATAM regions.",
+      },
+    ],
+  },
+  persistent: {
+    kicker: "Jun 2022 - Jun 2024 | Software Engineer",
+    title: "Persistent Systems",
+    description:
+      "Delivered custom AEM components, reusable Experience Fragments, Java Servlet integrations, Runmodes, workflows, and GenAI-enabled authoring enhancements across enterprise CMS programs.",
+    meta: ["AEM 6.5", "Java Servlets", "Experience Fragments", "GenAI"],
+    projects: [
+      {
+        name: "GenAI - AEM Accelerators",
+        date: "Jan 2024 - Jun 2024",
+        summary:
+          "Developed GenAI-enabled AEM components, pages, and custom RTE plugins integrated with servlets, Gemini, and OpenAI APIs; solution showcased at Adobe Summit 2024.",
+      },
+      {
+        name: "Luxury Home & Kitchen Appliances",
+        date: "Aug 2023 - Jan 2024",
+        summary:
+          "Built custom AEM components and reusable Experience Fragments with backend Java Servlet integrations, Runmodes, and publishing workflows.",
+      },
+      {
+        name: "New Pharma",
+        date: "Aug 2022 - Aug 2023",
+        summary:
+          "Developed and managed AEM 6.5 pages, components, assets, and servlets for content authoring and dynamic page rendering.",
+      },
+    ],
+  },
+};
+
+const organizationModal = document.getElementById("organization-modal");
+const organizationKicker = document.getElementById("organization-modal-kicker");
+const organizationTitle = document.getElementById("organization-modal-title");
+const organizationDescription = document.getElementById(
+  "organization-modal-description"
+);
+const organizationMeta = document.getElementById("organization-modal-meta");
+const organizationProjects = document.getElementById(
+  "organization-modal-projects"
+);
+let activeOrganizationTrigger = null;
+
+function openOrganizationModal(organizationKey, trigger) {
+  const details = organizationDetails[organizationKey];
+  if (!details || !organizationModal) return;
+
+  activeOrganizationTrigger = trigger;
+  organizationKicker.textContent = details.kicker;
+  organizationTitle.textContent = details.title;
+  organizationDescription.textContent = details.description;
+  organizationMeta.innerHTML = details.meta
+    .map((item) => `<span>${item}</span>`)
+    .join("");
+  organizationProjects.innerHTML = details.projects
+    .map(
+      (project) => `
+        <li>
+          <strong>${project.name}</strong>
+          <span>${project.date}</span>
+          <p>${project.summary}</p>
+        </li>
+      `
+    )
+    .join("");
+
+  organizationModal.classList.add("is-open");
+  organizationModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  organizationModal.querySelector(".organization-close").focus();
+}
+
+function closeOrganizationModal() {
+  if (!organizationModal) return;
+
+  organizationModal.classList.remove("is-open");
+  organizationModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+
+  if (activeOrganizationTrigger) {
+    activeOrganizationTrigger.focus();
+    activeOrganizationTrigger = null;
+  }
+}
+
+document.querySelectorAll("[data-organization]").forEach((item) => {
+  item.addEventListener("click", () => {
+    openOrganizationModal(item.dataset.organization, item);
+  });
+});
+
+document.querySelectorAll("[data-close-organization]").forEach((item) => {
+  item.addEventListener("click", closeOrganizationModal);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && organizationModal?.classList.contains("is-open")) {
+    closeOrganizationModal();
+  }
+});
 
 window.addEventListener("scroll", scrollActive);
